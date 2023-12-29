@@ -1,26 +1,51 @@
-
+import React, { useState } from 'react';
 import './App.css';
-import{useState} from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Example from './components/Example.js';
+import {Header} from './Header';
+import {Home} from './pages/Home';
+import {Menu} from './pages/Menu';
+import {Profile} from './pages/Profile';
+import {Contact} from './pages/Contact';
+
+
+// Assuming the directory is "components"
 
 function App() {
-  const TopComponent =()=>{
-    const[ state, setState] = useState();
+  const [state] = useState('');
 
-  }
   return (
     <div className="App">
-      <MiddleDomponent state = {state} />
+      <Router>
+        <Header  bg="dark" data-bs-theme="dark"/>
+        <Routes>
+          <Route path="/"  element ={<Home />}/>
+          <Route path="/profile" element ={<Profile />}/>
+          <Route path="/menu" element ={<Menu />}/>
+          <Route path="/contact"  element ={<Contact />}/>
+          <Route path="*"  element ={<h1>page no found</h1>}/>
+        </Routes>
+      </Router>
+      <TopComponent state={state} />
+      <Example />
     </div>
   );
 }
-const MiddleDomponent = (state)=>{
-  return(
-    <div>
-      <BottomComponent state = {state} />
-    </div>
-  )}
-  const BottomDomponetn =(state)=>{
-    return <div>{state}</div>
-  }
+
+const TopComponent = ({ state }) => (
+  <div>
+    <MiddleComponent state={state} />
+  </div>
+);
+
+const MiddleComponent = ({ state }) => (
+  <div>
+    <BottomComponent state={state} />
+  </div>
+);
+
+const BottomComponent = ({ state }) => (
+  <div>{state}</div>
+);
 
 export default App;
