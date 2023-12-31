@@ -12,6 +12,7 @@ export const Header = () => {
       <Container>
         <Nav className="me-auto">
             <Nav.Link as={Link} to = "/">HOME</Nav.Link>
+            <Nav.Link as={Link} to = "/sign_up">sign_up</Nav.Link>
             <Nav.Link as={Link} to = "/profile">profile</Nav.Link>
             <Nav.Link as={Link} to = "/menu">Menu</Nav.Link>
             <Nav.Link as={Link} to = "/contact">Contact</Nav.Link>

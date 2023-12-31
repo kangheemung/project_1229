@@ -29,6 +29,7 @@ function App() {
           <Header  bg="dark" data-bs-theme="dark"/>
           <Routes>
             <Route path="/"  element ={<Home />}/>
+            <Route path="/sign_up" element={<Form />}/>
             <Route path="/profile" element ={<Profile />}/>
             <Route path="/menu" element ={<Menu />}/>
             <Route path="/contact"  element ={<Contact />}/>
@@ -38,7 +39,7 @@ function App() {
       </QueryClientProvider>
       <TopComponent state={state} />
       <Example />
-      <Form />
+
     </div>
   );
 }
