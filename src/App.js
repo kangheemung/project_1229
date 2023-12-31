@@ -9,7 +9,7 @@ import {Menu} from './pages/Menu';
 import {Profile} from './pages/Profile';
 import {Contact} from './pages/Contact';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import { Form }from'./components/Form'
 // Assuming the directory is "components"
 
 function App() {
@@ -38,6 +38,7 @@ function App() {
       </QueryClientProvider>
       <TopComponent state={state} />
       <Example />
+      <Form />
     </div>
   );
 }
