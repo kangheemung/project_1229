@@ -9,9 +9,12 @@ import {Menu} from './pages/Menu';
 import {Profile} from './pages/Profile';
 import {Contact} from './pages/Contact';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Form }from'./components/Form'
-import { useToggle }from'./components/useToggle'
-import { Cat }from'./components/Cat'
+import { Form }from'./components/Form';
+import { useToggle }from'./components/useToggle';
+import { Cat }from'./components/Cat';
+
+import CounterComponent from './components/CounterComponent';
+
 
 // Assuming the directory is "components"
 
@@ -20,11 +23,11 @@ function App() {
 const { state: isVisible, toggle }= useToggle();
 
  const client = new QueryClient({
- defaultOptions: {
-   queries: {
-    refetchOnWindowFocus: false,
-   },
-  },
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+    },
  });
  const [state] = useState('');
 
@@ -42,8 +45,10 @@ const { state: isVisible, toggle }= useToggle();
             <Route path="*"  element ={<h1>page no found</h1>}/>
           </Routes>
         </Router>
-      </QueryClientProvider>
       <Cat/>
+      <CounterComponent />
+      <useCount />
+      </QueryClientProvider>
       <TopComponent state={state} />
       <Example />
       <button onClick={toggle}>{ isVisible? "Hide" : "Show"}</button>

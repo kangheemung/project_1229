@@ -6,7 +6,7 @@ export const Home = () => {
 
   // Fetch cat fact using react-query with the object syntax
   const {
-    data: catData,
+    data,
     isLoading,
     isError,
     error ,
@@ -30,7 +30,7 @@ if (isError) {
   return (
     <div>
       <h1>Home</h1>
-      <h1>Cat Fact: {catData?.fact}</h1>
+      <h1>Cat Fact: {data?.fact}</h1>
       <Button
         variant="primary"
         disabled={isLoading}

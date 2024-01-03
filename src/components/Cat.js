@@ -1,10 +1,10 @@
 // Cat.js
-import { useGetCat } from './useGetCat';
+import { useGetCat } from '../useGetCat';
  // Including .js extension
 
 export const Cat = () => {
     // Use the useGetCat hook here directly, as it's defined in the same file
-    const { data, isCatLoading, refetchData } = useGetCat();
+    const { data ,isCatLoading, refetchData } = useGetCat();
 
     if (isCatLoading) return <h1>Loading...</h1>;
 
