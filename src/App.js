@@ -10,9 +10,15 @@ import {Profile} from './pages/Profile';
 import {Contact} from './pages/Contact';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Form }from'./components/Form'
+import { useToggle }from'./components/useToggle'
+import { Cat }from'./components/Cat'
+
 // Assuming the directory is "components"
 
 function App() {
+
+const { state: isVisible, toggle }= useToggle();
+
  const client = new QueryClient({
  defaultOptions: {
    queries: {
@@ -20,7 +26,7 @@ function App() {
    },
   },
  });
-  const [state] = useState('');
+ const [state] = useState('');
 
   return (
     <div className = "App">
@@ -37,10 +43,12 @@ function App() {
           </Routes>
         </Router>
       </QueryClientProvider>
+      <Cat/>
       <TopComponent state={state} />
       <Example />
-
-    </div>
+      <button onClick={toggle}>{ isVisible? "Hide" : "Show"}</button>
+      { isVisible && <h1>{'W<お元気ですか?'} </h1>}
+  </div>
   );
 }
 
